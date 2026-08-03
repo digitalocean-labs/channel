@@ -37,6 +37,7 @@
     }
   },
   "scripts": {
+    "prepublishOnly": "pnpm build",
     "build": "tsc --project tsconfig.build.json",
     "test": "vitest --project browser",
     "test:setup": "playwright install chromium --with-deps",
