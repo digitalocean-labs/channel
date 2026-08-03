@@ -1,0 +1,64 @@
+{
+  "name": "@digitalocean/channel",
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.18.0",
+  "description": "Universal interface for request/response communication over channel messaging APIs",
+  "keywords": [
+    "MessagePort",
+    "MessageChannel",
+    "BroadcastChannel",
+    "WebSocket",
+    "postMessage",
+    "zod",
+    "chrome",
+    "web worker"
+  ],
+  "homepage": "https://github.com/digitalocean-labs/channel#readme",
+  "bugs": {
+    "url": "https://github.com/digitalocean-labs/channel/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalocean-labs/channel.git"
+  },
+  "license": "ISC",
+  "author": "Gabe Scholz <gscholz@digitalocean.com>",
+  "type": "module",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "types": "./dist/main.d.ts"
+    },
+    "./chrome": {
+      "import": "./dist/chrome.js",
+      "types": "./dist/chrome.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "test": "vitest --project browser",
+    "test:setup": "playwright install chromium --with-deps",
+    "test:chrome": "vitest run --project chrome-extension",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.2.2",
+    "@types/ws": "^8.18.1",
+    "@vitest/browser-playwright": "^4.1.10",
+    "esbuild": "^0.28.1",
+    "playwright": "^1.54.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.0",
+    "vitest": "^4.1.10",
+    "ws": "^8.21.1",
+    "zod": "^4"
+  },
+  "peerDependencies": {
+    "zod": "^4"
+  },
+  "optionalDependencies": {
+    "@types/chrome": "^0.2.2"
+  }
+}

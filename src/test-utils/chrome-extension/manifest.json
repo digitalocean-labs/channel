@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "browser-channel chrome runtime test",
+  "version": "0.0.1",
+  "description": "Test fixture for Port.fromChromeRuntimePort end-to-end",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["sidePanel", "tabs"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
